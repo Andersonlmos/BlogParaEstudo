@@ -57,3 +57,27 @@ multiplicar(10, 20); # $p = 10 e $q = 20
 echo '<hr>';
 
 //Os parâmetros opcionais têm que ser definidos após os parâmetros não opcionais.
+
+
+/*------------- NAMED ARGUMENTS ----------------
+No PHP 8 podemos fazer da seguinte forma para alterar o valor de $c e manter o valor de $b e $c*/
+
+function soma($a, $b = 10, $c = 30)
+{
+    echo $a + $b + $c;
+}
+
+soma(100, 10, 300);
+
+echo '<br>';
+
+soma(c:1000, a:0);
+
+echo '<br>';
+
+soma(500, c:1000);
+
+
+/*----------- FUNÇÕES ANONIMAS --------------
+A partir do PHP 5.3 foram introduzidas as funções anonimas. Uma função anonima não tem nome e pode ser definida como o valor a atribuir a uma variavel.*/
+
