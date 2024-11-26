@@ -77,7 +77,60 @@ echo '<br>';
 
 soma(500, c:1000);
 
+echo '<hr>';
+
 
 /*----------- FUNÇÕES ANONIMAS --------------
 A partir do PHP 5.3 foram introduzidas as funções anonimas. Uma função anonima não tem nome e pode ser definida como o valor a atribuir a uma variavel.*/
 
+$a = function()
+{
+    echo '<p>Olá!</p>';
+};
+//Neste caso , após a chave de fechamento da função tem que surgir um ;
+$a ();
+
+// Outro exemplo
+
+$falar = function($mensagem)
+{
+    echo "Eu digo: $mensagem</p>";
+};
+$falar('Estou aqui!');
+
+
+
+$andar = function($metros)
+{
+    return "Andei $metros metros";
+};
+echo $andar (100);
+echo '<hr>';
+
+/*As funções anonimas são particulamente uteis quando queremos passar como argumentos para uma função.*/ 
+
+
+/*----------- CLOSURES --------------------
+São funções anonimas que podem usar variaveis de escopo global*/ 
+
+$num1 = 20;
+$num2 = 30;
+$minhaClosure = function($num3) use($num1, $num2)
+{
+    echo "$num3 - $num1 - $num2";
+    $num2 += 1000;
+};
+$minhaClosure(10);
+echo "<p>$num2</p>";
+
+
+
+/*------------ ARROW FUNCTIONS ---------------
+São funções anonimas escritas de uma forma mais suscinta, suportam as mesmas caracteristicas de uma função closure com as diferença que capturam automaticcamente as variaveis globais.*/ 
+
+$num4 = 20;
+$num5 = 30;
+
+$minhaFuncao = fn($num6) =>"$num4 - $num5 - $num6";
+
+echo $minhaFuncao(10);
